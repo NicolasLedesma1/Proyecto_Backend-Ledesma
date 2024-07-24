@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "title": "aceiutnas",
+    "description": "oliva extra virgen",
+    "price": "14000",
+    "code": "pjk890",
+    "stock": 12
+  },
+  {
+    "id": 2,
+    "title": "Papel higiénico",
+    "description": "Papel higiénico suave",
+    "price": "1500",
+    "code": "abc890",
+    "stock": 120
+  },
+  {
+    "id": 3,
+    "title": "Mate",
+    "description": "El más rico",
+    "price": "1500",
+    "code": "abc123",
+    "stock": 150
+  },
+  {
+    "id": 4,
+    "title": "Pan",
+    "description": "Pan blanco fresco",
+    "price": "300",
+    "code": "def456",
+    "stock": 200
+  },
+  {
+    "id": 5,
+    "title": "Leche",
+    "description": "Leche entera",
+    "price": "800",
+    "code": "ghi789",
+    "stock": 100
+  },
+  {
+    "id": 6,
+    "title": "Arroz",
+    "description": "Arroz blanco",
+    "price": "1200",
+    "code": "jkl012",
+    "stock": 80
+  },
+  {
+    "id": 7,
+    "title": "Azúcar",
+    "description": "Azúcar blanca",
+    "price": "500",
+    "code": "mno345",
+    "stock": 120
+  },
+  {
+    "id": 8,
+    "title": "Café",
+    "description": "Café molido",
+    "price": "2500",
+    "code": "pqr678",
+    "stock": 50
+  },
+  {
+    "id": 9,
+    "title": "Jabón",
+    "description": "Jabón en barra",
+    "price": "700",
+    "code": "stu901",
+    "stock": 150
+  },
+  {
+    "id": 10,
+    "title": "Yogur",
+    "description": "Yogur natural",
+    "price": "600",
+    "code": "vwx234",
+    "stock": 90
+  },
+  {
+    "id": 11,
+    "title": "Aceite",
+    "description": "Aceite de oliva",
+    "price": "2000",
+    "code": "yzw567",
+    "stock": 70
+  },
+  {
+    "id": 12,
+    "title": "sahumerios",
+    "description": "los mas ricos",
+    "price": "3500",
+    "code": "fba233",
+    "stock": 20
+  },
+  {
+    "id": 13,
+    "title": "collar para gatos",
+    "description": "deja a tu hermoso",
+    "price": "2400",
+    "code": "cba455",
+    "stock": 55
+  },
+  {
+    "id": 14,
+    "title": "escobillon liso",
+    "description": "escobillon de madera liso",
+    "price": "3000",
+    "code": "mbc233",
+    "stock": 26
+  },
+  {
+    "id": 15,
+    "title": "peras",
+    "description": "para membrillo",
+    "price": "2000",
+    "code": "gsa344",
+    "stock": 4
+  }
+]
