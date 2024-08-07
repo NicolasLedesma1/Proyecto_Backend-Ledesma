@@ -61,11 +61,11 @@ class ProductManager {
             return buscado;
         }
     }
-    
 
     async guardarArchivo(arrayProductos) {
         await fs.writeFile(this.path, JSON.stringify(arrayProductos, null, 2));
     }
+
     async deleteProductById(id) {
         const products = await this.getProducts();
         const index = products.findIndex(product => product.id === id);
@@ -74,11 +74,10 @@ class ProductManager {
             return "Producto no encontrado";
         }
 
-        products.splice(index, 1); // Elimina el producto del array
-        await this.guardarArchivo(products); // Guarda el array actualizado en el archivo
+        products.splice(index, 1);
+        await this.guardarArchivo(products);
         return "Producto eliminado con éxito";
     }
 }
-
 
 module.exports = ProductManager;

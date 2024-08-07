@@ -3,6 +3,8 @@ const router = express.Router();
 const ProductManager = require('../controllers/product-manager');
 const manager = new ProductManager("./src/data/productos.json");
 
+
+
 router.get("/", async (req, res) => {
     let limit = req.query.limit;
     try {
@@ -80,4 +82,4 @@ router.delete("/:id", async (req, res) => {
     }
 });
 
-module.exports = router;
+module.exports = { router, manager };
