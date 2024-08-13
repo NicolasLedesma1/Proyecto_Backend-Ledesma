@@ -1,12 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const ProductManager = require('../controllers/product-manager');
-const manager = new ProductManager('./src/data/productos.json');
+const ProductManager = require('../dao/db/product-manager-db');
+const manager = new ProductManager( );
 
 router.get("/products", async (req, res) => {
     try {
         const arrayProductos = await manager.getProducts();
-        res.render("home", { arrayProductos });
+        console.log(arrayProductos); 
+        res.render("home",{arrayProductos});
     } catch (error) {
         console.error("Error obteniendo los productos:", error);
         res.status(500).send("Error obteniendo los productos");

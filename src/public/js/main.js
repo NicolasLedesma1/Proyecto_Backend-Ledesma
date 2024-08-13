@@ -24,12 +24,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 const productoDiv = document.createElement('div');
                 productoDiv.className = 'product-card';
                 productoDiv.innerHTML = `
-                    <h2>${producto.id} - ${producto.title}</h2>
+                    <h2> ${producto.title}</h2>
                     <p>codigo : ${producto.code}</p>
                     <p>descripcion : ${producto.description}</p>
                     <p>precio $ : ${producto.price}</p>
                     <p>cantidad : ${producto.stock}</p>
-                    <button class="eliminar-btn">eliminar</button>
+                    <button class="eliminar-btn"> eliminar </button>
                 `;
                 listaProductos.appendChild(productoDiv);
 

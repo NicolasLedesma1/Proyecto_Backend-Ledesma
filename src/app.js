@@ -1,9 +1,10 @@
 const express = require('express');
-const { router: productsRouter, manager } = require('./routes/products.router');
-const cartsRouter = require('./routes/carts.router');
-const viewsRouter = require('./routes/views.router');
+const productRouter  = require('./routes/products.router.js')
+const cartsRouter = require('./routes/carts.router.js');
+const viewsRouter = require('./routes/views.router.js');
 const exphbs = require('express-handlebars');
 const socket = require("socket.io");
+require("./db")
 
 const app = express();
 const PUERTO = 8080;
@@ -11,13 +12,19 @@ const PUERTO = 8080;
 app.use(express.json());
 app.use(express.static("./src/public"));
 
-// rutas
-app.use("/api/products", productsRouter);
+// rutas de api de carrito y productos
+app.use("/api/products", productRouter);
 app.use("/api/carts", cartsRouter);
+//ruta para ver los productos en vistas 
 app.use("/", viewsRouter);
-
 //plantillas
-app.engine("handlebars", exphbs.engine());
+app.engine('handlebars', exphbs.engine({
+    defaultLayout: 'main',
+    runtimeOptions: {
+        allowProtoPropertiesByDefault: true,
+        allowProtoMethodsByDefault: true,
+    }
+}));
 app.set("view engine", "handlebars");
 app.set("views", "./src/views");
 
@@ -63,3 +70,4 @@ io.on("connection", async (socket) => {
         console.log("Un usuario se ha desconectado");
     });
 });
+
