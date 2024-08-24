@@ -2,7 +2,10 @@ const mongoose = require ("mongoose")
 
 
 const productosSchema = new mongoose.Schema({
-    title : String,
+    title :{
+        type: String,
+        index: true
+    } ,
     description: String,
     price: String,
     code : String,

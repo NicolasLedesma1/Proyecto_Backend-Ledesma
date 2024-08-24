@@ -41,20 +41,19 @@ class ProductManager {
     }
     async getProductsById(id) {
         try {
-            const buscado = await ProductModel.findById(id)
-
+            const buscado = await ProductModel.findById(id);
+    
             if (!buscado) {
                 console.log("producto no encontrado");
                 return null;
             }
             console.log("producto encontrado");
-
+    
             return buscado;
         } catch (error) {
-            console.log("error al buscar el ID");
-
+            console.log("error al buscar el ID:", error);
+            throw error;
         }
-
     }
 
     async updateProduct(id, productoActualizado) {
@@ -73,16 +72,16 @@ class ProductManager {
    
     async deleteProductById(id) {
         try {
-            const deleteProduct = await ProductModel.findByIdAndDelete(id)
+            const deleteProduct = await ProductModel.findByIdAndDelete(id);
             if (!deleteProduct) {
-                console.log("no se pudo eliminar el producto");
-                return null;   
+                console.log("No se pudo eliminar el producto");
+                return null;
             }
             return deleteProduct;
         } catch (error) {
-            console.log("Error al borrar el producto ");
-            
+            console.log("Error al borrar el producto", error);
+            throw error;
         }
-}}
+    }}
 
 module.exports = ProductManager;

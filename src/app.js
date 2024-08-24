@@ -1,6 +1,6 @@
 const express = require('express');
-const productRouter  = require('./routes/products.router.js')
-const cartsRouter = require('./routes/carts.router.js');
+const {router , manager}  = require('./routes/products.router.js')
+const cartsRouter = require('./routes/carts.router');
 const viewsRouter = require('./routes/views.router.js');
 const exphbs = require('express-handlebars');
 const socket = require("socket.io");
@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(express.static("./src/public"));
 
 // rutas de api de carrito y productos
-app.use("/api/products", productRouter);
+app.use("/api/products", router);
 app.use("/api/carts", cartsRouter);
 //ruta para ver los productos en vistas 
 app.use("/", viewsRouter);
