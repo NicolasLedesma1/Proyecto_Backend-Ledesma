@@ -8,7 +8,8 @@ const main = async () =>{
     .then(()=> console.log("tenemos la bd"))
     .catch(() => console.log("no tenemos la bd"))
     
-    const carritoConProducto = await CartModel.findById("66ca34cf7778d1f19cf6bbe3")
+    const carritoConProducto = await CartModel.findById("66ce70a69c5bb223c319c11f")
+    
     console.log(JSON.stringify(carritoConProducto, null, 2));
     
     

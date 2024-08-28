@@ -41,10 +41,13 @@ router.put("/:cid/product/:pid", async (req, res) => {
         }
 
         const carrito = await cartManager.getCarritoById(carritoId);
-        const productoEnCarrito = carrito.products.find(p => p.product.toString() === productoId);
+        if (!carrito) {
+            return res.status(404).send("No existe el carrito con ese ID");
+        }
 
+        const productoEnCarrito = carrito.products.find(p => p.product.toString() === productoId);
         if (productoEnCarrito) {
-            productoEnCarrito.quantity = nuevaCantidad;  
+            productoEnCarrito.quantity = nuevaCantidad;
             carrito.markModified("products");
             await carrito.save();
             res.json(carrito.products);
@@ -65,9 +68,8 @@ router.post("/:cid/product/:pid", async (req, res) => {
         const carritoActualizado = await cartManager.agregarProductoAlCarrito(carritoId, productoId, quantity);
         res.json(carritoActualizado.products);
     } catch (error) {
-        res.status(500).send("El carrito no existe");
+        res.status(500).send("Error al agregar el producto al carrito");
     }
-
 });
 router.delete("/:cid", async (req, res) => {
     const carritoId = req.params.cid;
@@ -79,4 +81,4 @@ router.delete("/:cid", async (req, res) => {
         res.status(500).send("Error al eliminar el carrito");
     }
 });
- module.exports = router
+ module.exports = router 

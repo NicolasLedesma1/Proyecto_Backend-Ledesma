@@ -32,10 +32,10 @@ class ProductManager {
 
     async getProducts() {
         try {
-            const arrayProductos = await ProductModel.find();
+            const arrayProductos = await ProductModel.find().sort({ price: 1 });
             return arrayProductos;
         } catch (error) {
-            console.log("Error al leer el archivo", error);
+            console.log("Error al leer los productos", error);
         }
 
     }

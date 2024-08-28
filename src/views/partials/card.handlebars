@@ -1,10 +1,19 @@
-{{#each arrayProductos}}
-    <ul id="lista-productos">
-        <div class = "product-card">
-                <p>Título: {{this.title}}</p>
-                <p>Descripción: {{this.description}}</p>
-                <p>Precio: {{this.price}}</p>
-            <button> comprar </button>
-        </div>
-    </ul>
+{{#each productos}}
+<ul id="lista-productos">
+    <div class="product-card">
+        <p>Título: {{this.title}}</p>
+        <p>Descripción: {{this.description}}</p>
+        <p>Precio: {{this.price}}</p>
+        <button>Comprar</button>
+    </div>
+</ul>
 {{/each}}
+
+{{#if hasPrevPage}}
+    <a href="?page={{prevPage}}">Anterior</a>
+{{/if}}
+{{#if hasNextPage}}
+    <a href="?page={{nextPage}}">Siguiente</a>
+{{/if}}
+
+<p>Página {{currentPage}} de {{totalPages}}</p>

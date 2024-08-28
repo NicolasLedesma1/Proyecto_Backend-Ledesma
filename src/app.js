@@ -70,4 +70,3 @@ io.on("connection", async (socket) => {
         console.log("Un usuario se ha desconectado");
     });
 });
-
