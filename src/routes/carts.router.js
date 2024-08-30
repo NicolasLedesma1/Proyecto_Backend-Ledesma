@@ -45,7 +45,8 @@ router.put("/:cid/product/:pid", async (req, res) => {
             return res.status(404).send("No existe el carrito con ese ID");
         }
 
-        const productoEnCarrito = carrito.products.find(p => p.product.toString() === productoId);
+        const productoEnCarrito = carrito.products.find(p => p.product._id.toString() === productoId);
+
         if (productoEnCarrito) {
             productoEnCarrito.quantity = nuevaCantidad;
             carrito.markModified("products");
@@ -55,6 +56,7 @@ router.put("/:cid/product/:pid", async (req, res) => {
             res.status(404).send("El producto no existe en el carrito");
         }
     } catch (error) {
+        console.error("Error al actualizar la cantidad del producto en el carrito:", error);
         res.status(500).send("Error al actualizar la cantidad del producto en el carrito");
     }
 });
@@ -71,6 +73,7 @@ router.post("/:cid/product/:pid", async (req, res) => {
         res.status(500).send("Error al agregar el producto al carrito");
     }
 });
+
 router.delete("/:cid", async (req, res) => {
     const carritoId = req.params.cid;
 

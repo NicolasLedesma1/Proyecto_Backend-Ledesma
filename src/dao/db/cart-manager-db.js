@@ -1,4 +1,6 @@
+const mongoose = require("mongoose");
 const CartModel = require("../models/cart.model");
+
 class CartManager {
     async crearCarrito() {
         try {
@@ -13,7 +15,7 @@ class CartManager {
 
     async getCarritoById(carritoId) {
         try {
-            const carritoBuscado = await CartModel.findById(carritoId).exec(); 
+            const carritoBuscado = await CartModel.findById(carritoId).exec();
             if (!carritoBuscado) {
                 throw new Error("No existe carrito con ese ID");
             }
@@ -27,16 +29,16 @@ class CartManager {
     async agregarProductoAlCarrito(carritoId, productoId, quantity = 1) {
         try {
             const carrito = await this.getCarritoById(carritoId);
-            const existeProducto = carrito.products.find(p => p.product.toString() === productoId);
-
+            const productoIdObj = new mongoose.Types.ObjectId(productoId);
+            const existeProducto = carrito.products.find(p => p.product.equals(productoIdObj));
             if (existeProducto) {
                 existeProducto.quantity += quantity;
             } else {
-                carrito.products.push({ product: productoId, quantity });
+                carrito.products.push({ product: productoIdObj, quantity });
             }
-
             carrito.markModified("products");
             await carrito.save();
+            console.log("Carrito actualizado:", carrito);
             return carrito;
         } catch (error) {
             console.log("No se pudo agregar el producto", error);
